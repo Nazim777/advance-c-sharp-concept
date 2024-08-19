@@ -1,0 +1,15 @@
+D:\advance-dot-net\demo-console-app\bin\Debug\net6.0\demo-console-app.exe
+D:\advance-dot-net\demo-console-app\bin\Debug\net6.0\demo-console-app.deps.json
+D:\advance-dot-net\demo-console-app\bin\Debug\net6.0\demo-console-app.runtimeconfig.json
+D:\advance-dot-net\demo-console-app\bin\Debug\net6.0\demo-console-app.dll
+D:\advance-dot-net\demo-console-app\bin\Debug\net6.0\demo-console-app.pdb
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.csproj.AssemblyReference.cache
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.GeneratedMSBuildEditorConfig.editorconfig
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.AssemblyInfoInputs.cache
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.AssemblyInfo.cs
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.csproj.CoreCompileInputs.cache
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.dll
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\refint\demo-console-app.dll
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.pdb
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\demo-console-app.genruntimeconfig.cache
+D:\advance-dot-net\demo-console-app\obj\Debug\net6.0\ref\demo-console-app.dll
