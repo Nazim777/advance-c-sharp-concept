@@ -1,111 +1,81 @@
 ﻿namespace demo_console_app;
 class Program
 {
+    // declare a delegate type
+    // public delegate void PrintDelegate(string message);
+    // method that matches the delegate signature
+    // public static void PrintMessaage(string message){
+    //     Console.WriteLine(message);
 
-    
-    
+    // }
+
+// multicast delegate
+    // public static void PrintMessage1(string message){
+    //     Console.WriteLine("message 1 " + message);
+    // }
+    // public static void PrintMessage2(string message){
+    //     Console.WriteLine("message 2 " + message);
+    // }
+
+// using delegate as parameter(Callbacks)
+    // public delegate void ProcessDelegate(int num);
+    // public static void ProcessNumber(int num,ProcessDelegate process){
+    //     process(num);
+    // }
+    // public static void PrintSquare(int num){
+    //     Console.WriteLine("The Square is "+ (num*num));
+    // }
+    // public static void PrintCube(int num){
+    //     Console.WriteLine("The Cube is "+(num*num*num));
+    // }
+
+    // delegates with lambda expression
+    // public delegate int MathCalculations(int a,int b);
+   
+
+
+
     static void Main(string[] args)
      {
-    //     // linq with wide example and explanations
-    //     var numbers = new List<int>{1,2,3,4,5,6,7,8,9,10};
-    //     // list of even numbers
-    //    var evennumbers = numbers.Where(n=>n%2==0);
-    //    foreach(var num in evennumbers){
-    //     Console.WriteLine(num);
-    //    }
+        // instantiate the delegate
+        // PrintDelegate del = PrintMessaage;
+        // invoke the delegate
+        // del("Hello, Delegate!");
 
-    //    //list of odd numbers
-    //    var oddnumbers = numbers.Where(n=>n%2==1);
-    //    foreach(var num in oddnumbers){
-    //     Console.WriteLine(num);
-    //    }
+        // multicast delegate
+        // PrintDelegate del = PrintMessage1;
+        // del = del + PrintMessage2; // multicast the delegate
+        // del("Hello Delegates !");
 
-    // filtering with Where
-    // var words = new List<string>{"apple", "banana", "cherry", "date", "elderberry"};
-    // var wordWithB = words.Where(w=>w.StartsWith("b"));
-    // foreach(var word in wordWithB){
-    //     Console.WriteLine(word);
-    // }
+        // using delegate as parameter(Callbacks)
+        // ProcessNumber(2,PrintSquare);
+        // ProcessNumber(3,PrintCube);
+
+        // delegate with lambda expression
+    //     MathCalculations add=(int a,int b)=>a+b;
+    //    Console.WriteLine(add(10,10));
+    //    MathCalculations multiply=(int a, int b)=>a*b;
+    //    Console.WriteLine(multiply(10,10));
+
+    // built-in delegates
+    // Action delegate (no return type)
+    // Action<string> Print=message=>Console.WriteLine(message);
+    // Print("Hello Action delegate");
+
+    // Func delegate return a value
+//     Func<int,int,int,int> add=(a,b,c)=>a+b+c;
+//     Console.WriteLine(add(1,2,3));
+//    Func<string,string> PrintHello=(message)=>message;
+//    Console.WriteLine(PrintHello("Hello from Func delegate"));
+
+// predicate delegate return a boolean
+// Predicate<int> checkIsEven=(a)=>a%2==0;
+// Console.WriteLine(checkIsEven(4));
+// Console.WriteLine(checkIsEven(99));
 
 
-    // joining the data with join method
-    // var people = new List<Person>{
-    //     new Person{Id=1,Name="Ali"},
-    //     new Person{Id=2,Name="Bob"},
-    //     new Person{Id=3,Name="Sam"}
-    // };
-    // var Orders = new List<Order>{
-    //     new Order{PersonId=1,Product="Mobile"},
-    //     new Order{PersonId=2,Product="HeadPhone"},
-    //     new Order{PersonId=3,Product="Tablet"}
-    // };
-
-    // accessing the each item of people list
-    // foreach(Person person in people){
-    //     Console.WriteLine($"Id-{person.Id}: Name-{person.Name}");
-    // }
-
-    // join the two list
-    // var personOrders = people.Join(Orders,
-    //                                person=>person.Id,
-    //                                order=>order.PersonId,
-    //                                (person,order)=>new {person.Name,order.Product});
-
-    // foreach(var personOrder in personOrders){
-    //     Console.WriteLine($"{personOrder.Name} ordered {personOrder.Product}");
-    // }
-
-    // // aggregation with sum count,max,min ,agerage 
-    // var numbers = new List<int>{1,2,3,4};
-    // var sum = numbers.Sum();
-    // Console.WriteLine($"sum {sum}");
-    // var max = numbers.Max();
-    // Console.WriteLine($"max {max}");
-    // var min = numbers.Min();
-    // Console.WriteLine($"min {min}");
-    // var average = numbers.Average();
-    // Console.WriteLine($"agerage {average}");
-    // var count = numbers.Count();
-    // Console.WriteLine($"count {count}");
-
-    // sorting with OrderBy and ThenBy
-    // var students = new List<Student>{
-    //     new Student { Name="Avis",Grade="B"},
-    //     new Student { Name = "Charlie", Grade = "C" },
-    //     new Student { Name = "Bob", Grade = "C" },
-    //     new Student { Name = "David", Grade = "A" }
-    // };
-    // var sortedStudent = students.OrderBy(s=>s.Grade).ThenBy(s=>s.Name);
-    // foreach(var student in sortedStudent){
-    //     Console.WriteLine($"{student.Name} - {student.Grade}");
-    // }
-
-    // quantifiers with All, Any, and Contains
-    // it will check the true or false
-    // var numbers = new List<int>{1,2,3,4,5,6};
-    // bool hasNumberGreateThanFour = numbers.Any(x=>x>4);
-    // Console.WriteLine(hasNumberGreateThanFour);
-    // bool allNumbersArePositive =numbers.All(x=>x>0);
-    // Console.WriteLine(allNumbersArePositive);
-    // bool contansThree = numbers.Contains(3);
-    // Console.WriteLine(contansThree);
-
+   
     
-     
-
-
     }
 
-    public sealed class Person{
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-    public sealed class Order{
-        public int PersonId { get; set; }
-        public string Product { get; set; }
-    }
-    public sealed class Student{
-        public string Name { get; set; }
-        public string Grade { get; set; }
-    }
 }
