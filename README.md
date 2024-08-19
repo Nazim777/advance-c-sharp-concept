@@ -1,0 +1,1 @@
+All the advanced concepts are covered across multiple branches.
