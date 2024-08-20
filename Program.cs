@@ -1,4 +1,5 @@
 ﻿namespace demo_console_app;
+
 class Program
 {
 
@@ -6,106 +7,183 @@ class Program
     
     static void Main(string[] args)
      {
-    //     // linq with wide example and explanations
-    //     var numbers = new List<int>{1,2,3,4,5,6,7,8,9,10};
-    //     // list of even numbers
-    //    var evennumbers = numbers.Where(n=>n%2==0);
-    //    foreach(var num in evennumbers){
-    //     Console.WriteLine(num);
-    //    }
+        // Publisher publisher = new Publisher();
+        // Subscriber subscriber = new Subscriber();
 
-    //    //list of odd numbers
-    //    var oddnumbers = numbers.Where(n=>n%2==1);
-    //    foreach(var num in oddnumbers){
-    //     Console.WriteLine(num);
-    //    }
-
-    // filtering with Where
-    // var words = new List<string>{"apple", "banana", "cherry", "date", "elderberry"};
-    // var wordWithB = words.Where(w=>w.StartsWith("b"));
-    // foreach(var word in wordWithB){
-    //     Console.WriteLine(word);
-    // }
+        // // Subscribe to the event
+        // publisher.NotifyEvent +=  subscriber.OnNotify;
 
 
-    // joining the data with join method
-    // var people = new List<Person>{
-    //     new Person{Id=1,Name="Ali"},
-    //     new Person{Id=2,Name="Bob"},
-    //     new Person{Id=3,Name="Sam"}
-    // };
-    // var Orders = new List<Order>{
-    //     new Order{PersonId=1,Product="Mobile"},
-    //     new Order{PersonId=2,Product="HeadPhone"},
-    //     new Order{PersonId=3,Product="Tablet"}
-    // };
+        // // trigger the event
+        // publisher.ExecuteSomething();
 
-    // accessing the each item of people list
-    // foreach(Person person in people){
-    //     Console.WriteLine($"Id-{person.Id}: Name-{person.Name}");
-    // }
 
-    // join the two list
-    // var personOrders = people.Join(Orders,
-    //                                person=>person.Id,
-    //                                order=>order.PersonId,
-    //                                (person,order)=>new {person.Name,order.Product});
+        // event with EventHandler and EventArgs
+        // Publisher publisher = new Publisher();
+        // Subscriber subscriber = new Subscriber();
+        // // subscribe the event 
+        // publisher.MyEvent +=subscriber.OnEventReceived;
 
-    // foreach(var personOrder in personOrders){
-    //     Console.WriteLine($"{personOrder.Name} ordered {personOrder.Product}");
-    // }
+        // // trigger the event
+        // publisher.TriggerEvent();
 
-    // // aggregation with sum count,max,min ,agerage 
-    // var numbers = new List<int>{1,2,3,4};
-    // var sum = numbers.Sum();
-    // Console.WriteLine($"sum {sum}");
-    // var max = numbers.Max();
-    // Console.WriteLine($"max {max}");
-    // var min = numbers.Min();
-    // Console.WriteLine($"min {min}");
-    // var average = numbers.Average();
-    // Console.WriteLine($"agerage {average}");
-    // var count = numbers.Count();
-    // Console.WriteLine($"count {count}");
 
-    // sorting with OrderBy and ThenBy
-    // var students = new List<Student>{
-    //     new Student { Name="Avis",Grade="B"},
-    //     new Student { Name = "Charlie", Grade = "C" },
-    //     new Student { Name = "Bob", Grade = "C" },
-    //     new Student { Name = "David", Grade = "A" }
-    // };
-    // var sortedStudent = students.OrderBy(s=>s.Grade).ThenBy(s=>s.Name);
-    // foreach(var student in sortedStudent){
-    //     Console.WriteLine($"{student.Name} - {student.Grade}");
-    // }
+        // custom event argument
+        // Publisher publisher = new Publisher();
+        // Subscriber subscriber = new Subscriber();
+        // // subcribe the event
+        // publisher.MyEvent += subscriber.OnEventReceived;
 
-    // quantifiers with All, Any, and Contains
-    // it will check the true or false
-    // var numbers = new List<int>{1,2,3,4,5,6};
-    // bool hasNumberGreateThanFour = numbers.Any(x=>x>4);
-    // Console.WriteLine(hasNumberGreateThanFour);
-    // bool allNumbersArePositive =numbers.All(x=>x>0);
-    // Console.WriteLine(allNumbersArePositive);
-    // bool contansThree = numbers.Contains(3);
-    // Console.WriteLine(contansThree);
+        // // trigger event
+        // publisher.TriggerEvent("Hello from custom event!");
 
+
+
+        // multiple event subscriber
+        Publisher publisher = new Publisher();
+        SubscriberX subscriberx = new SubscriberX();
+        SubscriberY subscribery = new SubscriberY();
+
+        // subscribe the multiple event
+
+        publisher.MyEvent += subscriberx.OnEventReceived;
+        publisher.MyEvent += subscribery.OnEventReceived;
+
+        // unsubscribe the event (No output since subscriber is unsubscibed)
+        // publisher.MyEvent -= subscriberx.OnEventReceived;
+        // publisher.MyEvent -= subscribery.OnEventReceived;
+
+        // trigger the event 
+        publisher.TriggerEvent("Habib Islam","Teacher","Bangladesh","Hello from Custom Event!");
+
+
+
+        
+
+
+
+       
+      
     
-     
-
 
     }
 
-    public sealed class Person{
-        public int Id { get; set; }
-        public string Name { get; set; }
+   
+}
+
+// public class Publisher{
+//     // declare the delegate
+//     public delegate void NotifyDelegate(string message);
+//     // declare the event
+//     public event NotifyDelegate NotifyEvent;
+//     public void ExecuteSomething(){
+//         // check if there are any subscripber
+//         if(NotifyEvent != null){
+//             NotifyEvent("The event has been triggered!");
+
+//         }
+//     }
+// }
+
+// public class Subscriber{
+//     public void OnNotify(string meessage){
+//         Console.WriteLine("message received "+ meessage);
+//     }
+// }
+
+
+
+
+// event with EventHandler and EventArgs
+// public class Publisher {
+
+//     // declare a event handler with built-in event-delegate
+//     public event EventHandler MyEvent;
+//     public void TriggerEvent(){
+//         if(MyEvent !=null){
+//             MyEvent(this,EventArgs.Empty);
+//         }
+//     }
+// }
+
+// public class Subscriber{
+//     public void OnEventReceived(Object sender, EventArgs e){
+//         Console.WriteLine("Event Received");
+//     }
+// }
+
+
+
+// custom event argument
+
+// public class CustomEventArgs:EventArgs{
+//     public string message { get; }
+//     public CustomEventArgs(string _message)
+//     {
+//         message = _message;
+        
+//     }
+// }
+
+// public class Publisher{
+//     public event EventHandler<CustomEventArgs> MyEvent;
+//     public void TriggerEvent(string message){
+//         if(MyEvent !=null){
+//             MyEvent(this,new CustomEventArgs(message));
+//         }
+//     }
+// }
+
+// public class Subscriber{
+//     public void OnEventReceived(Object sender, CustomEventArgs e){
+//         Console.WriteLine($"Event Received : " + e.message);
+
+//     }
+// }
+
+
+
+// multiple event subscriber with custom EventArgs
+
+public class CustomEventArgs:EventArgs {
+    
+    public string Name { get; }
+      public string Profession { get; }
+    public string Country { get; }
+  
+    public string Message { get; }
+    public CustomEventArgs(string name, string profession, string country,string message)
+    {
+        Name = name;
+       Profession = profession;
+        Country= country;
+       Message = message;
+
+        
     }
-    public sealed class Order{
-        public int PersonId { get; set; }
-        public string Product { get; set; }
+
+}
+public class Publisher{
+    public event EventHandler<CustomEventArgs> MyEvent;
+    public void TriggerEvent(string name, string profession, string country, string message){
+        if(MyEvent !=null){
+            MyEvent(this,new CustomEventArgs(name,profession,country,message));
+        }
+
     }
-    public sealed class Student{
-        public string Name { get; set; }
-        public string Grade { get; set; }
+}
+
+public class SubscriberX{
+    public void OnEventReceived(Object sender, CustomEventArgs e){
+        Console.WriteLine($"Event Received 1 : "+ "Hello my name is " + e.Name+" and i'm from "+e.Country +" my profession is "+e.Profession + " and the message:  "+ e.Message );
+
+    }
+}
+
+public class SubscriberY{
+    public void OnEventReceived(Object sender , CustomEventArgs e){
+         Console.WriteLine($"Event Received 2 : "+ "Hello my name is " + e.Name+" and i'm from "+e.Country +" my profession is "+e.Profession + " and the message:  "+ e.Message );
+
+
     }
 }
