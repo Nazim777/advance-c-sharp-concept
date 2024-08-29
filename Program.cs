@@ -2,110 +2,109 @@
 class Program
 {
 
-    
-    
-    static void Main(string[] args)
-     {
-    //     // linq with wide example and explanations
-    //     var numbers = new List<int>{1,2,3,4,5,6,7,8,9,10};
-    //     // list of even numbers
-    //    var evennumbers = numbers.Where(n=>n%2==0);
-    //    foreach(var num in evennumbers){
-    //     Console.WriteLine(num);
-    //    }
-
-    //    //list of odd numbers
-    //    var oddnumbers = numbers.Where(n=>n%2==1);
-    //    foreach(var num in oddnumbers){
-    //     Console.WriteLine(num);
-    //    }
-
-    // filtering with Where
-    // var words = new List<string>{"apple", "banana", "cherry", "date", "elderberry"};
-    // var wordWithB = words.Where(w=>w.StartsWith("b"));
-    // foreach(var word in wordWithB){
-    //     Console.WriteLine(word);
-    // }
 
 
-    // joining the data with join method
-    // var people = new List<Person>{
-    //     new Person{Id=1,Name="Ali"},
-    //     new Person{Id=2,Name="Bob"},
-    //     new Person{Id=3,Name="Sam"}
-    // };
-    // var Orders = new List<Order>{
-    //     new Order{PersonId=1,Product="Mobile"},
-    //     new Order{PersonId=2,Product="HeadPhone"},
-    //     new Order{PersonId=3,Product="Tablet"}
-    // };
+    public static async Task Main()
+    {
+        // returning value from async method
+        // int result = await CalculateAsync(10, 10, '+');
+        // Console.WriteLine(result);
 
-    // accessing the each item of people list
-    // foreach(Person person in people){
-    //     Console.WriteLine($"Id-{person.Id}: Name-{person.Name}");
-    // }
+        // async method with no return value
+        // await PrintMessage();
 
-    // join the two list
-    // var personOrders = people.Join(Orders,
-    //                                person=>person.Id,
-    //                                order=>order.PersonId,
-    //                                (person,order)=>new {person.Name,order.Product});
+        // handling exception with async method
+        // try{
+        //     int result = await DivideAsync(10,0);
+        //     Console.WriteLine(result);
 
-    // foreach(var personOrder in personOrders){
-    //     Console.WriteLine($"{personOrder.Name} ordered {personOrder.Product}");
-    // }
+        // }
+        // catch(DivideByZeroException ex)
+        // {
+        //     Console.WriteLine($"caught exception: {ex.Message}");
 
-    // // aggregation with sum count,max,min ,agerage 
-    // var numbers = new List<int>{1,2,3,4};
-    // var sum = numbers.Sum();
-    // Console.WriteLine($"sum {sum}");
-    // var max = numbers.Max();
-    // Console.WriteLine($"max {max}");
-    // var min = numbers.Min();
-    // Console.WriteLine($"min {min}");
-    // var average = numbers.Average();
-    // Console.WriteLine($"agerage {average}");
-    // var count = numbers.Count();
-    // Console.WriteLine($"count {count}");
+        // }
 
-    // sorting with OrderBy and ThenBy
-    // var students = new List<Student>{
-    //     new Student { Name="Avis",Grade="B"},
-    //     new Student { Name = "Charlie", Grade = "C" },
-    //     new Student { Name = "Bob", Grade = "C" },
-    //     new Student { Name = "David", Grade = "A" }
-    // };
-    // var sortedStudent = students.OrderBy(s=>s.Grade).ThenBy(s=>s.Name);
-    // foreach(var student in sortedStudent){
-    //     Console.WriteLine($"{student.Name} - {student.Grade}");
-    // }
+        // asynchornous foreach loop
+        // int[] numbers = {1,2,3,4,5,6};
+        // Task[] tasks = Array.ConvertAll(numbers,async num=>await ProcessNumberAsync(num));
+        // await Task.WhenAll(tasks);
 
-    // quantifiers with All, Any, and Contains
-    // it will check the true or false
-    // var numbers = new List<int>{1,2,3,4,5,6};
-    // bool hasNumberGreateThanFour = numbers.Any(x=>x>4);
-    // Console.WriteLine(hasNumberGreateThanFour);
-    // bool allNumbersArePositive =numbers.All(x=>x>0);
-    // Console.WriteLine(allNumbersArePositive);
-    // bool contansThree = numbers.Contains(3);
-    // Console.WriteLine(contansThree);
+        // avoid using async void use async Task
+        // await ProccessAsync("Hello world!");
 
-    
-     
+        // making asynchronous http request
+        // using(HttpClient client= new HttpClient()){
+        //     // asynchronous get request
+        //     string content = await client.GetStringAsync("https://fakestoreapi.com/products/7");
+        //     Console.WriteLine(content);
+
+        // }
+        
+
 
 
     }
 
-    public sealed class Person{
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-    public sealed class Order{
-        public int PersonId { get; set; }
-        public string Product { get; set; }
-    }
-    public sealed class Student{
-        public string Name { get; set; }
-        public string Grade { get; set; }
-    }
+    // avoid using async void use async Task
+    // public static async Task ProccessAsync(string Message){
+    //     await Task.Delay(1000);
+    //     Console.WriteLine(Message);
+    // }
+
+    // async foreach loop
+    // public static async Task ProcessNumberAsync(int number){
+    //     await Task.Delay(1000);
+    //     Console.WriteLine($"process number: {number}");
+    // }
+
+    // handling exception with async method
+    // public static async Task<int> DivideAsync(int a, int b){
+    //     await Task.Delay(1000);
+    //     return a/b; // this will return DivideByZeroException if b=0
+    // }
+
+
+    // async method with no return value
+    // public static async Task PrintMessage(){
+    //     await Task.Delay(1000);
+    //     Console.WriteLine("Hello world!");
+    // }
+
+
+    // returning value from async method
+    // public static async Task<int> CalculateAsync(int a, int b, char operatorChar)
+    // {
+    //     await Task.Delay(0);
+    //     if (operatorChar == '+')
+    //     {
+    //         return a + b;
+
+    //     }
+    //     else if (operatorChar == '-')
+    //     {
+    //         return a - b;
+    //     }
+    //     else if (operatorChar == '*')
+    //     {
+    //         return a * b;
+    //     }
+    //     else if (operatorChar == '/')
+    //     {
+    //         if (b == 0)
+    //         {
+    //             throw new DivideByZeroException("can not divide by 0");
+    //         }
+    //         return a / b;
+    //     }
+
+    //     else
+    //     {
+    //         throw new InvalidOperationException("invalid operator");
+    //     }
+
+    // }
+
+
+
 }
